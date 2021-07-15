@@ -1,5 +1,6 @@
 package tests;
 
+import Pages.AccountPage;
 import Pages.SignPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class BaseTest {
 
     WebDriver driver;
     SignPage signPage;
+    AccountPage accountPage;
 
     @BeforeMethod
     public void initTest() {
@@ -36,5 +38,6 @@ public class BaseTest {
 
     public void initPages(){
         signPage = new SignPage(driver);
+        accountPage = new AccountPage(driver);
     }
 }
