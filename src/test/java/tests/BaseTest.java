@@ -1,7 +1,6 @@
 package tests;
 
-import Pages.AccountPage;
-import Pages.SignPage;
+import pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,6 +16,10 @@ public class BaseTest {
     WebDriver driver;
     SignPage signPage;
     AccountPage accountPage;
+    ProductPage productPage;
+    SearchPage searchPage;
+    ProductCardPage productCardPage;
+    CartModalPage cartModalPage;
 
     @BeforeMethod
     public void initTest() {
@@ -39,5 +42,9 @@ public class BaseTest {
     public void initPages(){
         signPage = new SignPage(driver);
         accountPage = new AccountPage(driver);
+        productPage = new ProductPage(driver);
+        searchPage = new SearchPage(driver);
+        productCardPage = new ProductCardPage(driver);
+        cartModalPage = new CartModalPage(driver);
     }
 }

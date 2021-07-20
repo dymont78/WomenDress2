@@ -1,11 +1,11 @@
-package Pages;
+package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static Pages.AccountPage.ACCOUNT_MARKER;
+import static pages.AccountPage.ACCOUNT_MARKER;
 
 @Log4j2
 public class SignPage extends BasePage{
@@ -17,7 +17,6 @@ public class SignPage extends BasePage{
     public static final By USERNAME_INPUT = By.id("email");
     public static final By PASSWORD_INPUT = By.id("passwd");
     public static final By SIGNIN_BUTTON_HEADER = By.xpath("//*[@class = 'header_user_info']");
-//    public static final By SIGNIN_BUTTON = By.xpath("//*[@class = 'login']");
     public static final By SIGNIN_BUTTON = By.id("SubmitLogin");
     public static final By ACCOUNT_NAME = By.xpath("//*[@class = 'account']");
 
@@ -42,4 +41,13 @@ public class SignPage extends BasePage{
         return this;
     }
 
+    @Step("Get account name")
+    public String getAccountName() {
+        return driver.findElement(ACCOUNT_NAME).getText();
+    }
+
+    @Step("Account logout check")
+    public boolean isAccountLogout() {
+        return driver.findElement(SIGNIN_BUTTON).isDisplayed();
+    }
 }
