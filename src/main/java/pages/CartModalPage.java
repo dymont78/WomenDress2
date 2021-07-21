@@ -33,7 +33,7 @@ public class CartModalPage extends BasePage{
     }
 
     @Step("Verify product Qti before adding in cart")
-    public boolean isProductQtiCorrect(String productQti) {
+    public boolean isProductQtyCorrect(String productQti) {
         clickModalFrame();
         return productQti.equals(driver.findElement(MODAL_PRODUCT_QTY).getText());
     }

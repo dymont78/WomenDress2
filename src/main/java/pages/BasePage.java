@@ -28,7 +28,7 @@ public class BasePage implements Constants {
     }
 
     public void openPage(String url) {
-        log.info("Open base page, URL " + BASE_URL);
+        log.info("Open URL " + BASE_URL);
         driver.get(url);
     }
 }

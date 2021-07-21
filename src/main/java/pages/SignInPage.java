@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import static pages.HeaderPage.ACCOUNT_MARKER;
 
 @Log4j2
-public class SignInPage extends BasePage{
+public class SignInPage extends HeaderPage{
 
     public SignInPage(WebDriver driver) {
         super(driver);
@@ -34,7 +34,6 @@ public class SignInPage extends BasePage{
 
     @Step("Open login page")
     public SignInPage openPage(){
-        log.info("Open base page, URL " + BASE_URL);
         super.openPage(BASE_URL);
         driver.findElement(SIGNIN_BUTTON_HEADER).click();
         return this;

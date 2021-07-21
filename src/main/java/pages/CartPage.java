@@ -17,7 +17,6 @@ public class CartPage extends BasePage{
 
     @Step("Open cart page")
     public CartPage openPage(){
-        log.info("Open cart page, URL " + CART_URL);
         super.openPage(CART_URL);
         return this;
     }

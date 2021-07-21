@@ -14,7 +14,6 @@ public class ProductPage extends HeaderPage{
 
     @Step("Open login page")
     public HeaderPage openPage(){
-        log.info("Open base page, URL " + BASE_URL);
         super.openPage(BASE_URL);
         return new HeaderPage(driver);
     }
