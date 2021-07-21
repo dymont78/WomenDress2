@@ -34,8 +34,8 @@ public class SignInPage extends BasePage{
 
     @Step("Open login page")
     public SignInPage openPage(){
-        log.info("Open login page, URL " + LOGIN_URL);
-        super.openPage(LOGIN_URL);
+        log.info("Open base page, URL " + BASE_URL);
+        super.openPage(BASE_URL);
         driver.findElement(SIGNIN_BUTTON_HEADER).click();
         return this;
     }

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class ProductCardPage extends BasePage {
+public class ProductCardPage extends HeaderPage {
 
     public ProductCardPage(WebDriver driver) {
         super(driver);
@@ -23,7 +23,7 @@ public class ProductCardPage extends BasePage {
 
     @Step("Open product card")
     public ProductCardPage openProductPage(String productName) {
-        openPage(LOGIN_URL);
+        openPage(BASE_URL);
         driver.findElement(By.xpath(String.format(PRODUCT_CARD, productName))).click();
         return this;
     }

@@ -1,7 +1,7 @@
 package constants;
 
 public interface Constants {
-    String LOGIN_URL = "http://automationpractice.com/index.php" ;
-    String CART_URL = LOGIN_URL + "?controller=order";
+    String BASE_URL = "http://automationpractice.com/index.php" ;
+    String CART_URL = BASE_URL + "?controller=order";
 
 }

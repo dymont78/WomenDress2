@@ -6,17 +6,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-public class ProductPage extends BasePage{
+public class ProductPage extends HeaderPage{
 
     public ProductPage(WebDriver driver) {
         super(driver);
     }
 
-
     @Step("Open login page")
     public HeaderPage openPage(){
-        log.info("Open login page, URL " + LOGIN_URL);
-        super.openPage(LOGIN_URL);
+        log.info("Open base page, URL " + BASE_URL);
+        super.openPage(BASE_URL);
         return new HeaderPage(driver);
     }
 

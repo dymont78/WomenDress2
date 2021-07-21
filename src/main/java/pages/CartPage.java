@@ -23,7 +23,7 @@ public class CartPage extends BasePage{
     }
 
     @Step("Open cart page")
-    public boolean isOpenCartPage(){
+    public boolean isCartPageOpened(){
         return driver.findElement(CART_TITLE).isDisplayed() && driver.findElement(ORDER_STEP).isDisplayed();
     }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +24,7 @@ public class BaseTest implements ITestConstants {
     CartModalPage cartModalPage;
     CartPage cartPage;
     HeaderPage headerPage;
+    ProductSteps productSteps;
 
     @BeforeMethod
     public void initTest() {
@@ -47,5 +49,6 @@ public class BaseTest implements ITestConstants {
         cartModalPage = new CartModalPage(driver);
         cartPage = new CartPage(driver);
         headerPage = new HeaderPage(driver);
+        productSteps = new ProductSteps(driver);
     }
 }

@@ -9,6 +9,6 @@ public class CartTest extends BaseTest {
     public void verifyOpenCartTest() {
         cartPage
                 .openPage();
-        Assert.assertTrue(cartPage.isOpenCartPage());
+        Assert.assertTrue(cartPage.isCartPageOpened());
     }
 }

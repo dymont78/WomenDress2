@@ -23,22 +23,19 @@ public class CartModalPage extends BasePage{
     @Step("Verify product name before adding in cart")
     public boolean isProductNameCorrect(String productName) {
         clickModalFrame();
-        String s1 = driver.findElement(MODAL_PRODUCT_NAME).getText();
-        return productName.equals(s1);
+        return productName.equals(driver.findElement(MODAL_PRODUCT_NAME).getText());
     }
 
     @Step("Verify product size before adding in cart")
     public boolean isProductSizeCorrect(String productSize) {
         clickModalFrame();
-        String s1 = driver.findElement(MODAL_PRODUCT_SIZE).getText();
-        return productSize.equals(s1);
+        return productSize.equals(driver.findElement(MODAL_PRODUCT_SIZE).getText());
     }
 
     @Step("Verify product Qti before adding in cart")
     public boolean isProductQtiCorrect(String productQti) {
         clickModalFrame();
-        String s1 = driver.findElement(MODAL_PRODUCT_QTY).getText();
-        return productQti.equals(s1);
+        return productQti.equals(driver.findElement(MODAL_PRODUCT_QTY).getText());
     }
 
 }
