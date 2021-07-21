@@ -4,13 +4,12 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import static pages.AccountPage.ACCOUNT_MARKER;
+import static pages.HeaderPage.ACCOUNT_MARKER;
 
 @Log4j2
-public class SignPage extends BasePage{
+public class SignInPage extends BasePage{
 
-    public SignPage(WebDriver driver) {
+    public SignInPage(WebDriver driver) {
         super(driver);
     }
 
@@ -21,7 +20,7 @@ public class SignPage extends BasePage{
     public static final By ACCOUNT_NAME = By.xpath("//*[@class = 'account']");
 
     @Step("Fill in {username} and {password}")
-    public AccountPage signIn(String username, String password){
+    public HeaderPage signIn(String username, String password){
         waitForElementLocated(USERNAME_INPUT, 10);
         log.info(String.format("Fill in username: %s in Login field.", username));
         driver.findElement(USERNAME_INPUT).sendKeys(username);
@@ -30,11 +29,11 @@ public class SignPage extends BasePage{
         log.info("Click login button");
         driver.findElement(SIGNIN_BUTTON).click();
         waitForElementLocated(ACCOUNT_MARKER, 10);
-        return new AccountPage(driver);
+        return new HeaderPage(driver);
     }
 
     @Step("Open login page")
-    public SignPage openPage(){
+    public SignInPage openPage(){
         log.info("Open login page, URL " + LOGIN_URL);
         super.openPage(LOGIN_URL);
         driver.findElement(SIGNIN_BUTTON_HEADER).click();
@@ -47,7 +46,7 @@ public class SignPage extends BasePage{
     }
 
     @Step("Account logout check")
-    public boolean isAccountLogout() {
+    public boolean isSignInButtonDisplayed() {
         return driver.findElement(SIGNIN_BUTTON).isDisplayed();
     }
 }

@@ -21,21 +21,23 @@ public class ProductCardPage extends BasePage {
     public static final By PRODUCT_SIZE = By.id("group_1");
     public static final By ADD_TO_CART_BUTTON = By.xpath("//span[text() = 'Add to cart']");
 
-    //Faded Short Sleeve T-shirts
     @Step("Open product card")
     public ProductCardPage openProductPage(String productName) {
-        log.info("Open login page, URL " + LOGIN_URL);
         openPage(LOGIN_URL);
         driver.findElement(By.xpath(String.format(PRODUCT_CARD, productName))).click();
         return this;
     }
 
-    @Step("Product card block checking")
-    public boolean isBlockChecked(String productName, String productPrice) {
-        return
-        (productName == driver.findElement(NAME_PRODUCT).getText()) &&
-                (productPrice == driver.findElement(PRICE_PRODUCT).getText());
+    @Step("Product card name block checking")
+    public boolean isNameChecked(String productName) {
+        return productName.equals(driver.findElement(NAME_PRODUCT).getText());
     }
+
+    @Step("Product card price block checking")
+    public boolean isPriceChecked(String productPrice) {
+        return productPrice.equals(driver.findElement(PRICE_PRODUCT).getText());
+    }
+
 
     @Step("Set product properties")
     public CartModalPage setProductProperties(String quantity, String size) {

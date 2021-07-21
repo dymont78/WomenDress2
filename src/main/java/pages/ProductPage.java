@@ -12,20 +12,12 @@ public class ProductPage extends BasePage{
         super(driver);
     }
 
-    public static final By SEARCH_INPUT = By.id("search_query_top");
-    public static final By SEARCH_BUTTON = By.xpath("//*[@name = 'submit_search']");
 
     @Step("Open login page")
-    public ProductPage openPage(){
+    public HeaderPage openPage(){
         log.info("Open login page, URL " + LOGIN_URL);
         super.openPage(LOGIN_URL);
-        return this;
+        return new HeaderPage(driver);
     }
 
-    @Step("Search product")
-    public SearchPage searchProduct(String productName){
-        driver.findElement(SEARCH_INPUT).sendKeys(productName);
-        driver.findElement(SEARCH_BUTTON).click();
-        return new SearchPage(driver);
-    }
 }

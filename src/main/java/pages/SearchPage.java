@@ -16,9 +16,8 @@ public class SearchPage extends BasePage{
     public static final By PRODUCT_NAME = By.xpath("//ul[@class = 'product_list grid row']//a[@class = 'product-name']");
 
     @Step("Get product name from first position")
-    public String searchProductName() {
+    public String getFirstProductNameFromSearchResult() {
         List<WebElement> productList = driver.findElements(PRODUCT_NAME);
-        WebElement productElement = productList.get(0);
-        return productElement.getText();
+        return productList.get(0).getText();
     }
 }
