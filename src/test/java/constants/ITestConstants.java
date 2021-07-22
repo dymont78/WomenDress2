@@ -7,7 +7,6 @@ public interface ITestConstants {
     String PRODUCT_SIZE_1 = "Orange, M";
     String PRODUCT_QTY_1 = "2";
     String PRODUCT_PRICE_1 = "$16.51";
-    String PRODUCT_DOUBLE_PRICE_1 = "$33.02";
     String PRODUCT_NAME_2 = "Blouse";
 
 }
