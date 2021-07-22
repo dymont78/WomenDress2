@@ -21,31 +21,42 @@ public class ProductCardPage extends HeaderPage {
     public static final By PRODUCT_SIZE = By.id("group_1");
     public static final By ADD_TO_CART_BUTTON = By.xpath("//span[text() = 'Add to cart']");
 
-    @Step("Open product card")
-    public ProductCardPage openProductPage(String productName) {
-        openPage(BASE_URL);
+    @Step("Open Base page")
+    public ProductCardPage openPage(){
+        super.openPage(BASE_URL);
+        return this;
+    }
+
+    @Step("Open product card - {productName}")
+    public ProductCardPage clickProductCardButton(String productName) {
         driver.findElement(By.xpath(String.format(PRODUCT_CARD, productName))).click();
         return this;
     }
 
-    @Step("Product card name block checking")
+    @Step("Product card name '{productName}' block checking")
     public boolean isNameChecked(String productName) {
         return productName.equals(driver.findElement(NAME_PRODUCT).getText());
     }
 
-    @Step("Product card price block checking")
+    @Step("Product card price '{productName}' block checking")
     public boolean isPriceChecked(String productPrice) {
         return productPrice.equals(driver.findElement(PRICE_PRODUCT).getText());
     }
 
 
-    @Step("Set product properties")
+    @Step("Set product properties quantity {quantity}, size {size}")
     public CartModalPage setProductProperties(String quantity, String size) {
         WebElement qty = driver.findElement(PRODUCT_QUANTITY);
         qty.clear();
         qty.sendKeys(quantity);
         Select dropdownSize = new Select(driver.findElement(PRODUCT_SIZE));
         dropdownSize.selectByVisibleText(size);
+        driver.findElement(ADD_TO_CART_BUTTON).click();
+        return new CartModalPage(driver);
+    }
+
+    @Step("Click 'Add to cart' button")
+    public CartModalPage clickAddToCardButton() {
         driver.findElement(ADD_TO_CART_BUTTON).click();
         return new CartModalPage(driver);
     }

@@ -17,5 +17,4 @@ public class ProductPage extends HeaderPage{
         super.openPage(BASE_URL);
         return new HeaderPage(driver);
     }
-
 }

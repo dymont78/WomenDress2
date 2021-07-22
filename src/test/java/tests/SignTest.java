@@ -9,7 +9,7 @@ public class SignTest extends BaseTest{
     public void signInTest() {
         signInPage
                 .openPage()
-                .signIn("td123@mailinator.com", "Ivanov24!");
+                .signIn(USER_NAME, USER_PASSWORD);
         Assert.assertEquals(signInPage.getAccountName(), "Ivan Ivanov");
     }
 
@@ -17,7 +17,7 @@ public class SignTest extends BaseTest{
     public void signOutTest() {
         signInPage
                 .openPage()
-                .signIn("td123@mailinator.com", "Ivanov24!")
+                .signIn(USER_NAME, USER_PASSWORD)
                 .signOut();
         Assert.assertTrue(signInPage.isSignInButtonDisplayed());
     }
