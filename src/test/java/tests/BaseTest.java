@@ -36,9 +36,9 @@ public class BaseTest implements ITestConstants {
     }
 
     @AfterMethod
-//    public void endTest(){
-//        driver.quit();
-//    }
+    public void endTest(){
+        driver.quit();
+    }
 
     public void initPages(){
         signInPage = new SignInPage(driver);

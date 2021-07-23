@@ -55,6 +55,7 @@ public class CartPage extends BasePage{
         WebElement qtyField = driver.findElement(By.xpath(String.format(FIEAD_QTY, productName)));
         qtyField.clear();
         qtyField.sendKeys(qty);
+        driver.findElement(By.xpath("//th[@class ='cart_quantity item']")).click();
     }
 
     @Step("Click button PROCEED_TO_CHECKOUT on cart step 1")
