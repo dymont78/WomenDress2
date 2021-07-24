@@ -21,11 +21,10 @@ public class HeaderPage extends BasePage {
         driver.findElement(SIGNOUT_BUTTON).click();
     }
 
-    @Step("Search product")
+    @Step("Search product '{productName}'")
     public SearchPage searchProduct(String productName){
         driver.findElement(SEARCH_INPUT).sendKeys(productName);
         driver.findElement(SEARCH_BUTTON).click();
         return new SearchPage(driver);
     }
-
 }

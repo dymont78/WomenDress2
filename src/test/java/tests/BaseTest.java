@@ -25,6 +25,9 @@ public class BaseTest implements ITestConstants {
     CartPage cartPage;
     HeaderPage headerPage;
     ProductSteps productSteps;
+    AddressPage addressPage;
+    PaymentPage paymentPage;
+    ShippingPage shippingPage;
 
     @BeforeMethod
     public void initTest() {
@@ -36,9 +39,9 @@ public class BaseTest implements ITestConstants {
     }
 
     @AfterMethod
-//    public void endTest(){
-//        driver.quit();
-//    }
+    public void endTest(){
+        driver.quit();
+    }
 
     public void initPages(){
         signInPage = new SignInPage(driver);
@@ -50,5 +53,9 @@ public class BaseTest implements ITestConstants {
         cartPage = new CartPage(driver);
         headerPage = new HeaderPage(driver);
         productSteps = new ProductSteps(driver);
+        addressPage = new AddressPage(driver);
+        paymentPage = new PaymentPage(driver);
+        shippingPage = new ShippingPage(driver);
+
     }
 }
