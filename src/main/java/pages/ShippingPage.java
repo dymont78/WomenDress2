@@ -15,7 +15,7 @@ public class ShippingPage extends HeaderPage{
     public static final By SHIPPING_CHECKBOX = By.id("cgv");
 
     @Step("Click button PROCEED_TO_CHECKOUT on cart step 4")
-    public CartPage clickProceedToCheckoutShippingPageButton(){
+    public ShippingPage clickProceedToCheckoutShippingPageButton(){
         driver.findElement(BUTTON_CART_PROCEED_TO_CHECKOUT_SHIPPING_PAGE).click();
         return this;
     }
