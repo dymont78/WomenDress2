@@ -42,15 +42,15 @@ public class CartTest extends BaseTest {
                 .clickProceedToCheckoutModalButton()
                 .clickProceedToCheckoutStep1Button()
                 .signIn(USER_NAME, USER_PASSWORD);
-        cartPage
-                .clickProceedToCheckoutStep3Button()
-                .clickCheckboxShippingOnStep4()
-                .clickProceedToCheckoutStep4Button();
+        addressPage
+                .clickProceedToCheckoutAddressPageButton()
+                .clickCheckboxShipping()
+                .clickProceedToCheckoutShippingPageButton();
         double priceFromCart = cartPage.getTotalPriceForPayment();
-        cartPage
+        paymentPage
                 .clickPayByBankWireButton()
                 .clickConfirmOrderButton();
-        double priceFromOrder = cartPage.getFinalPriceFromOrder();
+        double priceFromOrder = paymentPage.getFinalPriceFromOrder();
         Assert.assertEquals(priceFromCart, priceFromOrder);
     }
 
@@ -61,16 +61,15 @@ public class CartTest extends BaseTest {
                 .clickProceedToCheckoutModalButton()
                 .clickProceedToCheckoutStep1Button()
                 .signIn(USER_NAME, USER_PASSWORD);
-        cartPage
-                .clickProceedToCheckoutStep3Button()
-                .clickCheckboxShippingOnStep4()
-                .clickProceedToCheckoutStep4Button();
+        addressPage
+                .clickProceedToCheckoutAddressPageButton()
+                .clickCheckboxShipping()
+                .clickProceedToCheckoutShippingPageButton();
         double priceFromCart = cartPage.getTotalPriceForPayment();
-        cartPage
+        paymentPage
                 .clickPayByCheckButton()
                 .clickConfirmOrderButton();
-        double priceFromOrder = cartPage.getFinalPriceFromOrder();
+        double priceFromOrder = paymentPage.getFinalPriceFromOrder();
         Assert.assertEquals(priceFromCart, priceFromOrder);
     }
-
 }
