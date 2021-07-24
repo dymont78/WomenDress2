@@ -1,6 +1,8 @@
 package tests;
 
 import constants.ITestConstants;
+import org.testng.ITestContext;
+import org.testng.annotations.Listeners;
 import pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
 
+@Listeners(TestListener.class)
 @Test
 public class BaseTest implements ITestConstants {
 
@@ -30,12 +33,15 @@ public class BaseTest implements ITestConstants {
     ShippingPage shippingPage;
 
     @BeforeMethod
-    public void initTest() {
+    public void initTest(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         initPages();
+        String variable = "driver";
+        System.out.println("Setting driver into context with variable name " + variable);
+        context.setAttribute(variable, driver);
     }
 
     @AfterMethod
