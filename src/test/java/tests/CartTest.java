@@ -17,12 +17,14 @@ public class CartTest extends BaseTest {
         productSteps.addProductToCart(PRODUCT_NAME_1);
         cartModalPage.clickContinueShoppingButton();
         productSteps.addProductToCart(PRODUCT_NAME_2);
+        cartModalPage.clickProceedToCheckoutModalButton();
         double totalSummBeforeDelete = cartPage.getTotalSummFromCart();
-        cartModalPage
-                .clickProceedToCheckoutModalButton()
-                .deleteProductFromCart(PRODUCT_NAME_2);
+        System.out.println(totalSummBeforeDelete);
+        cartPage.deleteProductFromCart(PRODUCT_NAME_2);
         double totalSummAfterDelete = cartPage.getTotalSummFromCart();
-        Assert.assertEquals(totalSummBeforeDelete-totalSummAfterDelete, PRODUCT_PRICE_1);
+        System.out.println(totalSummAfterDelete);
+        Assert.assertTrue(totalSummAfterDelete != totalSummBeforeDelete);
+        Assert.assertTrue(PRODUCT_PRICE_1.equals("$" + Double.toString(totalSummAfterDelete)));
     }
 
     @Test(description = "Check: change qty product on cart and compare total summ")
