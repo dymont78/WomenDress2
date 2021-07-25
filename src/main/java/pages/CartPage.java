@@ -41,6 +41,9 @@ public class CartPage extends BasePage{
 
     @Step("Get total summ from cart")
     public double getTotalSummFromCart(){
+        //Добавляем sleep, так как нет другой возможности сделать
+        //ожидание для обновления данных в таблице. При отсутствии данной команды,
+        //считываются необновленные данные
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -54,11 +57,6 @@ public class CartPage extends BasePage{
         WebElement qtyField = driver.findElement(By.xpath(String.format(FIELD_QTY, productName)));
         qtyField.clear();
         qtyField.sendKeys(qty);
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Step("Click button PROCEED_TO_CHECKOUT on cart step 1")
