@@ -19,10 +19,8 @@ public class CartTest extends BaseTest {
         productSteps.addProductToCart(PRODUCT_NAME_2);
         cartModalPage.clickProceedToCheckoutModalButton();
         double totalSummBeforeDelete = cartPage.getTotalSummFromCart();
-        System.out.println(totalSummBeforeDelete);
         cartPage.deleteProductFromCart(PRODUCT_NAME_2);
         double totalSummAfterDelete = cartPage.getTotalSummFromCart();
-        System.out.println(totalSummAfterDelete);
         Assert.assertTrue(totalSummAfterDelete != totalSummBeforeDelete);
         Assert.assertTrue(PRODUCT_PRICE_1.equals("$" + Double.toString(totalSummAfterDelete)));
     }
