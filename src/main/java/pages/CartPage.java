@@ -41,6 +41,14 @@ public class CartPage extends BasePage{
 
     @Step("Get total summ from cart")
     public double getTotalSummFromCart(){
+        //Добавляем sleep, так как нет другой возможности сделать
+        //ожидание для обновления данных в таблице. При отсутствии данной команды,
+        //считываются необновленные данные
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return removeDollarSignFromString(driver.findElement(TOTAL_SUMM_FROM_CART).getText());
     }
 
@@ -49,7 +57,6 @@ public class CartPage extends BasePage{
         WebElement qtyField = driver.findElement(By.xpath(String.format(FIELD_QTY, productName)));
         qtyField.clear();
         qtyField.sendKeys(qty);
-        driver.findElement(By.xpath("//th[@class ='cart_quantity item']")).click();
     }
 
     @Step("Click button PROCEED_TO_CHECKOUT on cart step 1")
