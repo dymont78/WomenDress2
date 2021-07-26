@@ -1,6 +1,7 @@
 package tests;
 
 import constants.ITestConstants;
+import org.openqa.selenium.WebDriverException;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import pages.*;
@@ -35,7 +36,12 @@ public class BaseTest implements ITestConstants {
     @BeforeMethod
     public void initTest(ITestContext context) {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        try {
+            driver = new ChromeDriver();
+        } catch (WebDriverException e) {
+            System.out.println("!!!WebDriver is not started");
+            e.printStackTrace();
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         initPages();
